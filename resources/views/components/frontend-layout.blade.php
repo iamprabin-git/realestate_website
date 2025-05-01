@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <link rel="stylesheet" href="{{ asset('frontend/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}" />
 </head>
 <body>
+    @include('sweetalert::alert')
     <x-frontend-header/>
 
     <main>

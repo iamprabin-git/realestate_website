@@ -32,7 +32,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-4 md:p-5">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('agent_store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="grid grid-cols-2 gap-4">
                                     <div class="form-group">
@@ -80,7 +80,7 @@
             <div>
                 <h1 class="text-3xl font-bold">About Us</h1>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit esse rerum expedita quod praesentium saepe neque, blanditiis minus consequatur voluptas veniam, sapiente dolorem impedit soluta placeat libero ipsam quis quos. Quod minus optio ex aliquam doloremque. Voluptates, numquam. Similique officia architecto cupiditate aliquam, illum ducimus illo officiis amet consectetur commodi.</p>
-                <a href="" class="btn-primary">Read More</a>
+                <a href="{{ route('about') }}" class="btn-primary">Read More</a>
             </div>
             <img src="{{ asset('frontend/images/leleforweb.png') }}" alt="about">
         </div>
