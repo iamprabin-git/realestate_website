@@ -7,6 +7,8 @@ use App\Models\Agent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AgentRequestNotification;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PageController extends Controller
@@ -45,16 +47,16 @@ class PageController extends Controller
         $agent->save();
         toast('Your Agent Request Post has been submited!','success');
 
-        // $data = [
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'number' => $request->number,
-        // ];
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'number' => $request->number,
+        ];
 
-        // $admins = Admin::all();
-        // foreach ($admins as $admin) {
-        //     Mail::to($admin->email)->send(new AgentRequestNotification($data));
-        // }
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new AgentRequestNotification($data));
+        }
 
         // Mail::to($admins)->send(new AgentRequestNotification($data));
 
